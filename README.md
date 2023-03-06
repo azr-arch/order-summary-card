@@ -4,7 +4,7 @@
 
 live here https://azr-arch.github.io/order-summary-card/
 
-##Tech Used:
+## Tech Used:
 * tailwindcss (but via CDN)
 * html
 
