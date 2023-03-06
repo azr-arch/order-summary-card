@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Order summary card</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: #3e52a3;
+
+        color: #1f2f56;
+        color: #e0e8ff;
+        color: #f5f7ff;
+        color: #7280a7;
+        color: #1d1386;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          screens: {
+            "2xl": { 'max': "1250px" },
+            "xl": {'max': '1030px'},
+            "md": {'max' : '800px'},
+            "sm": {'max': '620px'}
+          },
+          extend: {
+            fontFamily: {
+              "red-hat": "'Red Hat Display'",
+            },
+            backgroundImage: {
+              "bg-desktop": "url('./images/pattern-background-desktop.svg')",
+              "bg-mobile": "url('./images/pattern-background-mobile.svg')",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="min-h-screen flex flex-col justify-around items-center bg-bg-desktop md:bg-bg-mobile md:bg-cover  bg-no-repeat bg-contain 2xl:bg-auto bg-[#e0e8ff] "
+  >
+    <!-- Order Summary You can now listen to millions of songs, audiobooks, and
+    podcasts on any device anywhere you like! Annual Plan $59.99/year Change
+    Proceed to Payment Cancel Order -->
+
+    <!-- <div class="w-1/ h-1/2 bg-black">a</div> -->
+    <div class="shadow-lg w-1/5 h-9/10 overflow-hidden rounded-xl font-red-hat 2xl:w-1/4 xl:w-1/3  md:w-2/5 sm:w-[90%] sm:h-[90%]">
+      <img src="./images/illustration-hero.svg" alt="poster" class="w-full" />
+
+      <div class="h-full bg-white p-7 text-center flex flex-col gap-5">
+        <p class="text-[#1f2f56] font-black text-2xl ">
+          Order Summary
+        </p>
+        <p class="text-[#7280a7] text-xs font-medium">
+          You can now listen to millions of songs, audiobooks, and podcasts on
+          any device anywhere you like!
+        </p>
+
+        <div class="flex items-center bg-[#f5f7ff] p-2 rounded-xl">
+          <img
+            src="./images/icon-music.svg"
+            alt="music-icon"
+            class="w-10 h-10 flex items-center"
+          />
+          <p
+            class="text-xs mr-auto ml-3 text-[#7280a7] font-xl font-medium leading-5"
+          >
+            <span class="text-[#1f2f56] font-bold">Annual Plan</span> <br />
+            <span id="price" data-setToMonth="false">$59.99/year</span>
+          </p>
+          <a
+            href="#"
+            class="text-[#3829e0] font-bold text-xs underline"
+            id="changePrice"
+            >Change</a
+          >
+        </div>
+
+        <button
+          class="transition-background duration-100 ease-out bg-[#3829e0] text-white px-2 py-2.5 rounded-md font-medium text-xs hover:bg-[#1d1386]"
+        >
+          Proceeed to Payment
+        </button>
+        <button class="text-xs text-[#7280a7] font-bold hover:font-black">
+          Cancel Order
+        </button>
+      </div>
+    </div>
+    <!-- <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div> -->
+
+    <script>
+      const priceEl = document.getElementById("price");
+      const changePriceEl = document.getElementById("changePrice");
+
+      // Changing price when clicked
+      changePriceEl.addEventListener("click", () => {
+        const flag = priceEl.getAttribute("data-setToMonth");
+
+        if (flag === "true") {
+          priceEl.textContent = `$59.99/year`;
+          priceEl.setAttribute("data-setToMonth", "false");
+        } else {
+          priceEl.textContent = `$9.99/month`;
+          priceEl.setAttribute("data-setToMonth", "true");
+        }
+      });
+    </script>
+  </body>
+</html>
